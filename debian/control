@@ -1,0 +1,23 @@
+Source: hashid
+Section: utils
+Priority: extra
+Maintainer: Devon Kearns <dookie@kali.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/psypanda/hashID
+Vcs-Git: ssh://git@git.kali.org/packages/hashid.git
+Vcs-Browser: http://git.kali.org/gitweb?p=collab-maint/hashid.git;a=summary
+
+Package: hashid
+Architecture: all
+Depends: ${misc:Depends}, python3
+Description: Identify the different types of hashes used to encrypt data
+ Identify the different types of hashes used to encrypt data and especially 
+ passwords.
+ .
+ hashID is a tool written in Python 3.x which supports the identification of 
+ over 175 unique hash types using regular expressions.
+ It is able to identify a single hash or parse a file and identify the hashes 
+ within it.
+ There is also a nodejs version of hashID available which is easily set up to 
+ provide online hash identification.
