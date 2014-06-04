@@ -1,4 +1,68 @@
 ### hashID Changelog
+**Version 2.7.0**
+* major rewrite
+* dropped "--file" and "--dir" (obsolete)
+* all output defaults to stdout
+* see readme.md for new usage
+
+**Version 2.6.7**
+* small cosmetic changes
+* new hashcat mode:
+	* MediaWiki
+
+**Version 2.6.6**
+* added hashes:
+	* 1Password(Agile Keychain)
+	* 1Password(Cloud Keychain)
+	* IKE-PSK MD5
+	* IKE-PSK SHA1
+* new hashcat mode:
+	* 1Password(Agile Keychain)
+	* 1Password(Cloud Keychain)
+	* IKE-PSK MD5
+	* IKE-PSK SHA1
+
+**Version 2.6.5**
+* make hashID usable as a python module
+* changed regex:
+	* PHPS
+	* Kerberos 5 AS-REQ Pre-Auth
+	
+**Version 2.6.4**
+* added hashes:
+	* PHPS
+* new hashcat mode:
+	* PHPS
+
+**Version 2.6.3**
+* added hashes:
+	* Lotus Notes/Domino 5
+* changed regex:
+	* DNSSEC(NSEC3)
+* renamed:
+	* Lotus Domino to Lotus Notes/Domino 6
+* new hashcat mode:
+	* Lotus Notes/Domino 5
+	* Lotus Notes/Domino 6
+
+**Version 2.6.2**
+* added JTR formats to hashinfo.xlsx
+* changed regex:
+	* Juniper Netscreen/SSG(ScreenOS)
+	* NTLM
+
+**Version 2.6.1**
+* additional mimetype check on file input
+* added hashes:
+	* MSSQL(2014)
+* renamed:
+	* Blowfish(Eggdrop) to Eggdrop IRC Bot
+
+**Version 2.6.0**
+* added directory analyze (parameter: "-d/--dir")
+* more error checking on userinput
+* changed regex:
+	* vBulletin < v3.8.5
 
 **Version 2.5.0**
 * new syntax - see readme
@@ -6,7 +70,7 @@
 	* CRC-24
 	* Joomla ≥ 2.5.18
 	* Woltlab Burning Board 4.x
-* changed regex for:
+* changed regex:
 	* GRUB 2
 	* BCrypt(SHA-256)
 	* OSX v10.8
@@ -24,7 +88,7 @@
 **Version 2.4.5**
 * added hashes:
 	* Fairly Secure Hashed Password
-* changed regex for:
+* changed regex:
 	* SAP CODVN B (BCODE)
 	* SAP CODVN F/G (PASSCODE)
 * renamed:
@@ -41,7 +105,7 @@
 * added hashes:
 	* hMailServer
 	* MediaWiki
-* changed regex for:
+* changed regex:
 	* vBulletin ≥ v3.8.5
 	* Cisco-ASA(MD5)
 * renamed:
@@ -59,7 +123,7 @@
 **Version 2.4.1**
 * added hashes:
 	* NTHash(FreeBSD Variant)
-* changed regex for:
+* changed regex:
 	* Domain Cached Credentials
 	* Domain Cached Credentials 2
 	* NetNTLMv1-VANILLA / NetNTLMv1+ESS
@@ -73,7 +137,7 @@
 	* Double SHA-1
 	* md5apr1
 	* bcrypt
-* changed regex for:
+* changed regex:
 	* NetNTLMv1-VANILLA / NetNTLMv1+ESS
 	* NetNTLMv2
 	
@@ -84,7 +148,7 @@
 	* Lastpass
 	* Cisco-ASA(MD5)
 	* DNSSEC(NSEC3)
-* changed regex for:
+* changed regex:
 	* VNC
 * renamed:
 	* Keccak to SHA3
@@ -92,7 +156,7 @@
 **Version 2.3.5**	
 * added hashes:
 	* Wordpress v2.6.0/2.6.1
-* changed regex for:
+* changed regex:
 	* MyBB ≥ v1.2+
 * renamed:
 	* MD5(phpBB) to phpBB 3.x
