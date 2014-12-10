@@ -14,4 +14,4 @@
 
 override_dh_auto_install:
 	dh_installdirs
-	install python/hashid.py $(CURDIR)/debian/hashid/usr/bin/hashid
+	install hashid.py $(CURDIR)/debian/hashid/usr/bin/hashid
