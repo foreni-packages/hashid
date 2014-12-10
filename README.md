@@ -3,14 +3,15 @@ hashID
 
 Identify the different types of hashes used to encrypt data and especially passwords.
 
-This tool replaces [hash-identifier](http://code.google.com/p/hash-identifier/), which is outdated!
+This tool replaces [hash-identifier](http://code.google.com/p/hash-identifier/ "hash-identifier"), which is outdated!
  
-hashID is a tool written in Python 3.x which supports the identification of over 185 unique hash types using regular expressions.
-A full list of supported hashes is found [here](hashinfo.xlsx).    
+hashID is a tool written in Python 3.x which supports the identification of over 200 unique hash types using regular expressions.
+A full list of supported hashes is found [here](hashinfo.xlsx "hashinfo.xlsx").    
 It is able to identify a single hash, parse a file or read files in a directory and identify the hashes within them.    
-Altough hashID is written in Python 3.x it should also work with Python 2.x except for the file and directory analyze.
+hashID is also capable of including the corresponding [hashcat](https://hashcat.net/oclhashcat/ "hashcat") mode in its output.    
+Altough hashID is written in Python 3.x it should also work with Python 2.7.
 
-There is also a [nodejs](js) version of hashID available which is easily set up to provide online hash identification.  
+There is also a [nodejs](https://github.com/psypanda/hashID/tree/js "hashID-nodejs") version of hashID available which is easily set up to provide online hash identification.  
 
 *Note: When identifying a hash on *nix operating systems use single quotes to prevent interpolation*
 
@@ -19,40 +20,42 @@ Install
 ```
 sudo apt-get install python3 git
 git clone https://github.com/psypanda/hashid.git
-cd hashid/python
-chmod +x hashid.py
+cd hashid && chmod +x hashid.py
+sudo install -g 0 -o 0 -m 0644 man/hashid.7 /usr/share/man/man7/
+sudo gzip /usr/share/man/man7/hashid.7
 exit
 ```
 
 Usage
 ------
 ```
-$ python3 hashid.py INPUT [-m] [--help] [--version]
+$ hashid.py [-a] [-m] [--help] [--version] INPUT
 ```
 
-| Parameter        				 | Description      				  				  |
-| :----------------------------- | :------------------------------------------------- |
-| input					      	 | string or filename to analyze 					  |  
-| -m, --mode	              	 | include corresponding hashcat mode in output		  |
-| --help	    				 | show this help message and exit 					  |
-| --version                   	 | show program's version number and exit			  |
+| Parameter                      | Description                                         |
+| :----------------------------- | :-------------------------------------------------- |
+| input                          | string or filename to analyze                       |
+| -a, --all                      | list all hash algorithms including salted passwords |
+| -m, --mode                     | include corresponding hashcat mode in output        |
+| --help                         | show this help message and exit                     |
+| --version                      | show program's version number and exit              |
 
 
 Screenshot
 ------
 ```
-$ python3 hashid.py $P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1
+$ ./hashid.py $P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1
 Analyzing '$P$8ohUJ.1sdFw09/bMaAQPTGDNi2BIUt1'
 [+] Wordpress ≥ v2.6.2
 [+] Joomla ≥ v2.5.18
 [+] PHPass' Portable Hash
 
-$ python3 hashid.py -m ecf076ce9d6ed3624a9332112b1cd67b236fdd11:17782686
+$ ./hashid.py -m ecf076ce9d6ed3624a9332112b1cd67b236fdd11:17782686
 Analyzing 'ecf076ce9d6ed3624a9332112b1cd67b236fdd11:17782686'
 [+] Redmine Project Management Web App [Hashcat Mode: 7600]
 [+] SMF ≥ v1.1 [Hashcat Mode: 121]
 
-$ python3 hashid.py hashes.txt
+$ ./hashid.py hashes.txt
 --File 'hashes.txt'--
 Analyzing '*85ADE5DDF71E348162894C71D73324C043838751'
 [+] MySQL5.x
@@ -60,10 +63,10 @@ Analyzing '*85ADE5DDF71E348162894C71D73324C043838751'
 Analyzing '$2a$08$VPzNKPAY60FsAbnq.c.h5.XTCZtC1z.j3hnlDFGImN9FcpfR1QnLq'
 [+] Blowfish(OpenBSD)
 [+] Woltlab Burning Board 4.x
-[+] bcrypt
+[+] BCrypt
 --End of file 'hashes.txt'--
 
-$ python3 hashid.py folder/*.txt
+$ ./hashid.py folder/*.txt
 --File 'hashes.txt'--
 Analyzing '*85ADE5DDF71E348162894C71D73324C043838751'
 [+] MySQL5.x
@@ -71,7 +74,7 @@ Analyzing '*85ADE5DDF71E348162894C71D73324C043838751'
 Analyzing '$2a$08$VPzNKPAY60FsAbnq.c.h5.XTCZtC1z.j3hnlDFGImN9FcpfR1QnLq'
 [+] Blowfish(OpenBSD)
 [+] Woltlab Burning Board 4.x
-[+] bcrypt
+[+] BCrypt
 --End of file 'hashes.txt'--
 --File 'hashes.txt'--
 Analyzing '{smd5}01234567$yOImZPvBC8dg1HjGYfH7j.'
@@ -86,17 +89,13 @@ Contribute
 Contributing to this project can be done in various ways:
 * Add currently unsupported hash types
 * Change/Fix/Enhance existing regular expression
-* Provide reading resources on the specific hash types (see "Resources" section in [hashinfo.xlsx](hashinfo.xlsx))
-* Fix anything noted in the "Known issues" section
-
-Known issues
-------
-* hashID isn't capable of handling piped input at the moment
+* Provide reading resources on specific hash types in [hashinfo.xlsx](hashinfo.xlsx)
 
 Credits
 ------
-* Thanks to [sigkill](https://github.com/sigkill-rcode) who helped me numerous times fixing and optimizing the code
-* Thanks to [kmulvey](https://github.com/kmulvey) for supplying and maintaining a nodejs version of hashID
+* Thanks to [sigkill](https://github.com/sigkill-rcode) who helped numerous times fixing and optimizing the code
+* Thanks to [kmulvey](https://github.com/kmulvey) for supplying a [nodejs](https://github.com/psypanda/hashID/tree/js) version of hashID
+* Thanks to [bburky](https://github.com/bburky) for extending hashIDs functionality and numerous ideas to improve it
 
 Resources
 ------
