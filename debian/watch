@@ -1,0 +1,3 @@
+version=3
+opts="filenamemangle=s/(?:.*)?v?(\d[\d\.]*)\.tar\.gz/hashid-$1.tar.gz/" \
+https://github.com/psypanda/hashID/tags (?:.*/)?v?(\d[\d\.]*)\.tar\.gz
