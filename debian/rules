@@ -15,3 +15,6 @@
 override_dh_auto_install:
 	dh_installdirs
 	install hashid.py $(CURDIR)/debian/hashid/usr/bin/hashid
+
+override_dh_installchangelogs:
+	dh_installchangelogs doc/CHANGELOG
