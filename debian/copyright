@@ -3,7 +3,7 @@ Upstream-Name: hashid
 Source: https://github.com/psypanda/hashID
 
 Files: *
-Copyright: c0re <https://psypanda.org/>
+Copyright: 2013-2015 c0re <https://psypanda.org/>
 License: GPL-3+
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
